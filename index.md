@@ -37,3 +37,12 @@
 >
 >    return shell_exec("echo $input | $markdown_script");
 
+## 现在开始学习LISTS
+
+* 红色
+* 绿色
+* 蓝色
+
++ 红色
++ 绿色
++ 蓝色
