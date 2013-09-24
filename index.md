@@ -98,6 +98,7 @@ int b = 1;
 int c = a + b;
 printf("c = %d", c);
 ```
+```
 - [x] 今天吃了三顿饭
 - [ ] 今天早起来书了
 - [ ] a task list item
@@ -105,3 +106,5 @@ printf("c = %d", c);
 - [ ] normal **formatting**, @mentions, #1234 refs
 - [ ] incomplete
 - [x] completed
+```
+
