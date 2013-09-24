@@ -90,5 +90,12 @@ __双下划线__
 ### 某只猪去年秋天抢了我手机
 
 ~Roses are red~
+
 ~~Violets are blue~~
+```C
+int a = 0;
+int b = 1;
+int c = a + b;
+printf("c = %d", c);
+```
 
