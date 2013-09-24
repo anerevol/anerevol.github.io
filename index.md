@@ -60,5 +60,5 @@
 
 这是一个[例子][标识] reference-style link.
 这是第二个[例子][标识] reference-style link.
-[标识]: http://baidu.com/ "这个是可选的标题"
+[标识]: http://baidu.com/   "这个是可选的标题"
 
