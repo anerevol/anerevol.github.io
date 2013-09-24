@@ -89,6 +89,6 @@ __双下划线__
 
 ### 某只猪去年秋天抢了我手机
 
-Roses are red
-Violets are blue
+~Roses are red~
+~~Violets are blue~~
 
