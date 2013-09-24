@@ -58,7 +58,7 @@
 这是一个[例子](http://baidu.com/ "标题") inline link.
 [这个链接](http://baidu.com/)没有标题
 
-这是一个[例子][标识] reference-style link.
+这是一个[例子][标识] reference-style link. 
 这是第二个[例子][标识] reference-style link.
 [标识]: http://baidu.com/  "这个是可选的标题"
 [haha]: http://sina.com/  (新浪网)
