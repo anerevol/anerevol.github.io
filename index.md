@@ -49,3 +49,11 @@
 
 ### 测试一下<hr />
 ***
+* * *
+---
+- - -
+
+### 学习LINK
+
+这是一个[例子](http://baidu.com/ "标题") inline link.
+[这个链接](http://baidu.com/)没有标题
