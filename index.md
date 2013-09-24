@@ -63,3 +63,10 @@
 [标识]: http://baidu.com/  "这个是可选的标题"
 [haha]: http://sina.com/  (新浪网)
 这里是第三个[链接][haha] 
+[Google][]
+[Google]: http://g.cn
+[1]: http://google.com/ "谷歌"
+[2]: http://search.yahoo.com/ "雅虎"
+[3]: http://baidu.com/ "百度"
+我从[Google][1]获取的10的流量,从[雅虎][2]获取了4的流量, 从[百度][3]获取了2的流量。
+
