@@ -4,7 +4,8 @@ categories: [iOS]
 ---
 #iOS RunLoop简介
 第一次看到RunLoop应该是在在用于“阻塞”主线程的用法中。
-```C
+```
+```
 // 主线程
 while (!doSthFinished)
 {
@@ -40,7 +41,7 @@ dispatch_async(dispatch_get_main_queue(), ^{
 运行的结果是onTimer并没有被调用。
 这里引申出了一个概念，timer是和所在线程相关的，这里的线程在threadMain函数结束后也随之结束了，所以timer没有触发。
 下面进行另外一个实验。
-```C
+```
 - (void)threadMain
 {
     [self performSelector:@selector(someMethod) withObject:nil afterDelay:1];
@@ -54,7 +55,7 @@ dispatch_async(dispatch_get_main_queue(), ^{
 和timer一样，someMethod函数也没有调用。
 可是在主线程这么用是没问题的啊。
 想办法让这样的代码正常工作吧。
-```C
+```
 - (void)threadMain
 {
     [self performSelector:@selector(someMethod) withObject:nil afterDelay:1];
@@ -78,12 +79,12 @@ dispatch_async(dispatch_get_main_queue(), ^{
 2014-07-11 14:00:10.135 RunLoopTest[2666:370b] leave:-[ViewController threadMain]
 ```
 从日志输出看出，加上
-```C
+```
 [[NSRunLoop currentRunLoop] run];
 ```
 这句，代码就工作正常了。
 那么runloop的run又做了点什么事件呢，先看看文档。
-```C
+```
 - (void)run
 Description 
 Puts the receiver into a permanent loop, during which time it processes data from all attached input sources.
