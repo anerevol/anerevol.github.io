@@ -5,7 +5,6 @@ categories: [iOS]
 #iOS RunLoop简介
 第一次看到RunLoop应该是在在用于“阻塞”主线程的用法中。
 ```
-```
 // 主线程
 while (!doSthFinished)
 {
@@ -20,7 +19,7 @@ dispatch_async(dispatch_get_main_queue(), ^{
 });
 ```
 这样的代码看上去让主线程暂停在了while循环中，令人感到神奇的是，触摸事件却能正常触发，为了能明白其中的道理，先从最简单一个Demo开始吧。
-```C
+```
 - (void)startThread
 {
     NSThread* thread = [[NSThread alloc] initWithTarget:self selector:@selector(threadMain) object:nil];
