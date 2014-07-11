@@ -102,6 +102,7 @@ If no input sources or timers are attached to the run loop, this method exits im
 这里简单的将timer和performSelector都看成input sources了。
 其他平台也有类似和消息分发吧。
 文档中还说到mode概念，其中提到了`NSDefaultRunLoopMode`，这mode又是怎么一回事呢，先对上面的代码做点小修改。
+
 ```
 - (void)threadMain
 {
