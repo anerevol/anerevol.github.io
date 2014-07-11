@@ -4,6 +4,7 @@ categories: [iOS]
 ---
 #iOS RunLoop简介
 第一次看到RunLoop应该是在在用于“阻塞”主线程的用法中。
+
 ```
 // 主线程
 while (!doSthFinished)
