@@ -4,7 +4,7 @@ categories: [iOS]
 ---
 #iOS RunLoop简介
 第一次看到RunLoop应该是在在用于“阻塞”主线程的用法中。
-```
+```C
 // 主线程
 while (!doSthFinished)
 {
@@ -19,7 +19,7 @@ dispatch_async(dispatch_get_main_queue(), ^{
 });
 ```
 这样的代码看上去让主线程暂停在了while循环中，令人感到神奇的是，触摸事件却能正常触发，为了能明白其中的道理，先从最简单一个Demo开始吧。
-```
+```C
 - (void)startThread
 {
     NSThread* thread = [[NSThread alloc] initWithTarget:self selector:@selector(threadMain) object:nil];
@@ -40,7 +40,7 @@ dispatch_async(dispatch_get_main_queue(), ^{
 运行的结果是onTimer并没有被调用。
 这里引申出了一个概念，timer是和所在线程相关的，这里的线程在threadMain函数结束后也随之结束了，所以timer没有触发。
 下面进行另外一个实验。
-```
+```C
 - (void)threadMain
 {
     [self performSelector:@selector(someMethod) withObject:nil afterDelay:1];
@@ -54,7 +54,7 @@ dispatch_async(dispatch_get_main_queue(), ^{
 和timer一样，someMethod函数也没有调用。
 可是在主线程这么用是没问题的啊。
 想办法让这样的代码正常工作吧。
-```
+```C
 - (void)threadMain
 {
     [self performSelector:@selector(someMethod) withObject:nil afterDelay:1];
@@ -78,12 +78,12 @@ dispatch_async(dispatch_get_main_queue(), ^{
 2014-07-11 14:00:10.135 RunLoopTest[2666:370b] leave:-[ViewController threadMain]
 ```
 从日志输出看出，加上
-```
+```C
 [[NSRunLoop currentRunLoop] run];
 ```
 这句，代码就工作正常了。
 那么runloop的run又做了点什么事件呢，先看看文档。
-```
+```C
 - (void)run
 Description 
 Puts the receiver into a permanent loop, during which time it processes data from all attached input sources.
@@ -92,7 +92,7 @@ If no input sources or timers are attached to the run loop, this method exits im
 大概意思是将runloop置于一个循环之中，直到和它关联的input sources都处理完毕。如果调用该方法时候没有关联的input sources，那么该函数会立即返回。
 这里简单的将timer和performSelector都看成input sources了。
 其他平台也有类似和消息分发吧。
-文档中还说到mode概念，其中提到了NSDefaultRunLoopMode，这mode又是怎么一回事呢，先对上面的代码做点小修改。
+文档中还说到mode概念，其中提到了`NSDefaultRunLoopMode`，这mode又是怎么一回事呢，先对上面的代码做点小修改。
 ```
 - (void)threadMain
 {
